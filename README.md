@@ -1,6 +1,6 @@
 # ResumeForge - 在线简历编辑器
 
-一个纯前端的在线简历编辑器，内置多种开源模板风格，支持 A4 纸预览、实时编辑、一键导出。使用 TRAE AI 助手从零构建，全程 AI 驱动开发。
+一个纯前端的在线简历编辑器，内置多种开源模板风格，支持 A4 纸预览、实时编辑、一键导出。
 
 **在线体验**: [https://dumplingszw.github.io/resume-builder/](https://dumplingszw.github.io/resume-builder/)
 
@@ -29,16 +29,6 @@
 resume-builder/
 └── resume-builder.html    # 单文件应用（HTML + CSS + JS 全部内联）
 ```
-
-## 开发工具
-
-本项目使用 **TRAE Work**（[https://www.trae.cn/work](https://www.trae.cn/work)）AI 助手从零构建，所有功能均通过 AI 对话完成开发，包括：
-- 需求分析与 UI 设计
-- A4 纸预览比例调试
-- 多套开源模板风格接入
-- ResumeSample 技术简历模板集成
-- 文案优化与去 AI 味处理
-- Git 初始化与 GitHub Pages 部署
 
 ## 参考项目
 
