@@ -4607,22 +4607,12 @@ function exportPDF() {
       <style>
         ${allStyles}
         /* Print page setup: force single A4 page */
-        @page { size: A4 portrait; margin: 0; }
+        @page { size: A4 portrait; margin: 14mm 18mm; }
         html, body {
           margin: 0; padding: 0;
-          width: 210mm; height: 297mm;
-          overflow: hidden;
           background: #fff;
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
-        }
-        .print-resume-wrapper {
-          width: 210mm;
-          height: 297mm;
-          padding: 14mm 18mm;
-          box-sizing: border-box;
-          overflow: hidden;
-          position: relative;
         }
         /* Hide badge in print */
         .github-template-badge, .template-badge { display: none !important; }
@@ -4631,33 +4621,44 @@ function exportPDF() {
         .gh-item, .preview-item, .pt-item {
           page-break-inside: avoid !important;
         }
-        /* Scale down if content overflows */
-        .print-resume-wrapper > * {
-          transform-origin: top left;
+        /* Reset preview-paper for print */
+        .preview-paper {
+          box-shadow: none !important;
+          width: 174mm !important;  /* 210 - 18*2 */
+          min-height: auto !important;
+          height: auto !important;
+          max-height: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          overflow: visible !important;
+          font-size: 0.62rem !important;
+          line-height: 1.32 !important;
         }
       </style>
     </head>
     <body>
-      <div class="print-resume-wrapper" id="printWrapper">
-        <div class="preview-paper" style="box-shadow:none;width:100%;height:100%;padding:0;margin:0;max-height:100%;overflow:hidden;">
-          ${previewEl.innerHTML}
-        </div>
+      <div class="preview-paper" id="printPaper">
+        ${previewEl.innerHTML}
       </div>
       <script>
         (function() {
-          const wrapper = document.getElementById('printWrapper');
-          const paper = wrapper.querySelector('.preview-paper');
+          const paper = document.getElementById('printPaper');
           function fitToPage() {
-            const maxH = 269; /* 297mm - 28mm padding = ~269mm content area */
-            const contentH = paper.scrollHeight / 3.78; /* px to mm approx */
-            if (contentH > maxH) {
-              const scale = maxH / contentH;
-              paper.style.transform = 'scale(' + scale.toFixed(3) + ')';
-              paper.style.transformOrigin = 'top left';
+            // A4 printable area in pixels @ 96 DPI
+            // 210mm x 297mm; with 14mm/18mm margins => 174mm x 269mm content
+            // 174mm ~ 658px, 269mm ~ 1017px
+            const maxH = 1017;
+            const naturalH = paper.scrollHeight;
+            if (naturalH > maxH) {
+              const scale = maxH / naturalH;
+              const finalScale = Math.max(scale, 0.55); // don't go too small
+              paper.style.zoom = finalScale.toFixed(3);
             }
           }
-          setTimeout(fitToPage, 100);
-          setTimeout(() => { window.print(); }, 600);
+          // Wait for fonts & images then measure
+          if (document.fonts) { document.fonts.ready.then(fitToPage); }
+          else { setTimeout(fitToPage, 300); }
+          setTimeout(() => { window.print(); }, 800);
         })();
       <\/script>
     </body>
