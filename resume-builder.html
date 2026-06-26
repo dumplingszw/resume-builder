@@ -1143,78 +1143,271 @@ body {
 }
 
 /* ========== GitHub Open Source Preview Styles ========== */
-.preview-github {
-  --gh: #2563eb;
-  --gh-soft: rgba(37,99,235,0.08);
-  font-family: Inter, 'Noto Sans SC', sans-serif;
-  color: #111827;
-}
+/* --- Base shared styles --- */
+.preview-github { font-family: Inter, 'Noto Sans SC', sans-serif; color: #111827; }
 .preview-github .github-template-badge {
-  display: inline-flex;
-  padding: 2px 7px;
-  border-radius: 999px;
-  background: var(--gh-soft);
-  color: var(--gh);
-  font-weight: 800;
-  font-size: 0.48rem;
-  margin-bottom: 5px;
+  display: inline-flex; padding: 2px 7px; border-radius: 999px;
+  background: var(--gh-soft, rgba(37,99,235,0.08)); color: var(--gh, #2563eb);
+  font-weight: 800; font-size: 0.48rem; margin-bottom: 5px;
 }
-.preview-github .gh-head {
-  border-bottom: 1.5px solid var(--gh);
-  padding-bottom: 6px;
-  margin-bottom: 7px;
-}
-.preview-github .gh-name { font-size: 1rem; font-weight: 900; letter-spacing: -0.03em; }
-.preview-github .gh-title { color: var(--gh); font-weight: 700; font-size: 0.54rem; margin-top: 2px; }
-.preview-github .gh-contact { color: #64748b; font-size: 0.46rem; margin-top: 3px; }
-.preview-github .gh-grid { display: grid; grid-template-columns: 34% 1fr; gap: 10px; }
 .preview-github .gh-section { margin-bottom: 6px; }
-.preview-github .gh-section-title {
-  color: var(--gh);
-  font-size: 0.56rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 3px;
-}
 .preview-github .gh-item { margin-bottom: 4px; }
 .preview-github .gh-row { display: flex; justify-content: space-between; gap: 8px; font-size: 0.52rem; font-weight: 800; }
 .preview-github .gh-row span { color: #64748b; font-size: 0.44rem; font-weight: 600; white-space: nowrap; }
 .preview-github .gh-desc { font-size: 0.47rem; color: #475569; line-height: 1.24; white-space: pre-line; }
 .preview-github .gh-list { margin: 2px 0 0 9px; padding: 0; font-size: 0.46rem; line-height: 1.18; color: #334155; }
 .preview-github .gh-skills { display: flex; flex-wrap: wrap; gap: 3px; }
-.preview-github .gh-pill { padding: 1px 5px; border-radius: 6px; background: var(--gh-soft); color: var(--gh); font-weight: 800; font-size: 0.42rem; }
-.preview-github.style-awesome { --gh: #2563eb; --gh-soft: rgba(37,99,235,0.09); }
-.preview-github.style-modern { --gh: #059669; --gh-soft: rgba(5,150,105,0.10); }
-.preview-github.style-jsonresume { --gh: #7c3aed; --gh-soft: rgba(124,58,237,0.10); }
-.preview-github.style-deedy { --gh: #0f172a; --gh-soft: rgba(15,23,42,0.08); }
-.preview-github.style-jakes { --gh: #dc2626; --gh-soft: rgba(220,38,38,0.08); }
-.preview-github.style-reactive { --gh: #0891b2; --gh-soft: rgba(8,145,178,0.10); }
-.preview-github.style-openresume { --gh: #ea580c; --gh-soft: rgba(234,88,12,0.10); }
-.preview-github.style-resumesample { --gh: #0ea5e9; --gh-soft: rgba(14,165,233,0.10); }
+.preview-github .gh-pill { padding: 1px 5px; border-radius: 6px; font-weight: 800; font-size: 0.42rem; }
+@media print { .github-template-badge { display: none !important; } }
+
+/* ========== 1. Awesome-CV — single-column centered, red accent ========== */
+.preview-github.style-awesome {
+  --gh: #cc0000; --gh-soft: rgba(204,0,0,0.09);
+  font-family: Inter, 'Noto Sans SC', sans-serif;
+}
+.preview-github.style-awesome .gh-head {
+  text-align: center; padding-bottom: 6px; margin-bottom: 7px;
+  border-bottom: 1px solid #ddd;
+}
+.preview-github.style-awesome .gh-name {
+  font-size: 1.05rem; font-weight: 900; letter-spacing: -0.02em; color: #111827; text-align: center;
+}
+.preview-github.style-awesome .gh-title {
+  color: #555; font-weight: 700; font-size: 0.5rem; margin-top: 2px;
+  text-transform: uppercase; letter-spacing: 0.08em; text-align: center;
+}
+.preview-github.style-awesome .gh-contact {
+  color: #64748b; font-size: 0.46rem; margin-top: 3px; text-align: center;
+}
+.preview-github.style-awesome .gh-section-title {
+  color: var(--gh); font-size: 0.56rem; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px;
+  padding-bottom: 2px; border-bottom: 1.5px solid var(--gh);
+}
+.preview-github.style-awesome .gh-pill {
+  background: var(--gh-soft); color: var(--gh);
+}
+.preview-github.style-awesome .gh-footer {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 0.42rem;
+  color: #999; border-top: 1px solid #ddd; padding-top: 4px; margin-top: 8px;
+}
+.preview-github.style-awesome .gh-footer-center { text-align: center; }
+.preview-github.style-awesome .gh-footer-right { text-align: right; }
+
+/* ========== 2. modern-resume / billryan — minimal serif, tight ========== */
+.preview-github.style-modern {
+  --gh: #374151; --gh-soft: rgba(55,65,81,0.06);
+  font-family: 'Times New Roman', Georgia, 'Noto Serif SC', serif;
+  color: #1a1a1a; line-height: 1.18;
+}
+.preview-github.style-modern .gh-head {
+  text-align: center; padding-bottom: 5px; margin-bottom: 5px;
+}
+.preview-github.style-modern .gh-name {
+  font-size: 1rem; font-weight: 700; letter-spacing: 0.02em;
+  font-family: 'Times New Roman', Georgia, serif; text-align: center;
+}
+.preview-github.style-modern .gh-title {
+  color: #555; font-size: 0.5rem; margin-top: 1px; text-align: center;
+  font-family: Inter, 'Noto Sans SC', sans-serif; font-weight: 400;
+}
+.preview-github.style-modern .gh-contact {
+  color: #777; font-size: 0.44rem; margin-top: 2px; text-align: center;
+  font-family: Inter, 'Noto Sans SC', sans-serif;
+}
+.preview-github.style-modern .gh-section-title {
+  color: #1a1a1a; font-size: 0.55rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;
+  padding-bottom: 2px; border-bottom: 0.5px solid #bbb;
+}
+.preview-github.style-modern .gh-row { font-size: 0.50rem; font-weight: 700; }
+.preview-github.style-modern .gh-row span { font-size: 0.44rem; color: #888; }
+.preview-github.style-modern .gh-desc { font-size: 0.46rem; color: #444; line-height: 1.18; }
+.preview-github.style-modern .gh-list { font-size: 0.44rem; line-height: 1.15; color: #333; }
+.preview-github.style-modern .gh-pill {
+  background: #f3f4f6; color: #374151; border-radius: 0; padding: 1px 4px;
+  font-family: Inter, sans-serif; font-size: 0.40rem;
+}
+
+/* ========== 3. JSON Resume — centered uppercase purple underline ========== */
+.preview-github.style-jsonresume {
+  --gh: #7c3aed; --gh-soft: rgba(124,58,237,0.08);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+}
+.preview-github.style-jsonresume .gh-head {
+  text-align: left; padding-bottom: 6px; margin-bottom: 7px;
+}
+.preview-github.style-jsonresume .gh-name {
+  font-size: 1rem; font-weight: 800; letter-spacing: -0.03em; color: #111827;
+}
+.preview-github.style-jsonresume .gh-title {
+  color: var(--gh); font-weight: 600; font-size: 0.52rem; margin-top: 2px;
+}
+.preview-github.style-jsonresume .gh-contact {
+  color: #64748b; font-size: 0.46rem; margin-top: 3px;
+}
+.preview-github.style-jsonresume .gh-section-title {
+  color: #111827; font-size: 0.54rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  text-align: center; margin-bottom: 3px; padding-bottom: 3px;
+  border-bottom: 2px solid var(--gh);
+}
+.preview-github.style-jsonresume .gh-pill {
+  background: var(--gh-soft); color: var(--gh);
+}
+
+/* ========== 4. Deedy — full-width dark header + asymmetric dual-column ========== */
+.preview-github.style-deedy {
+  --gh: #2C2C2C; --gh-soft: rgba(44,44,44,0.06);
+  font-family: 'Times New Roman', Georgia, 'Noto Serif SC', serif; color: #222;
+}
+.preview-github.style-deedy .gh-head-deedy {
+  background: #2C2C2C; color: #fff; padding: 8px 10px; margin: -1px -1px 8px -1px;
+}
+.preview-github.style-deedy .gh-head-deedy .gh-name {
+  font-size: 1rem; font-weight: 700; color: #fff; letter-spacing: 0.02em;
+  font-family: 'Times New Roman', Georgia, serif;
+}
+.preview-github.style-deedy .gh-head-deedy .gh-title {
+  font-size: 0.48rem; color: #ccc; font-weight: 400; margin-top: 1px;
+  font-family: Inter, sans-serif;
+}
+.preview-github.style-deedy .gh-head-deedy .gh-contact {
+  font-size: 0.42rem; color: #aaa; margin-top: 2px;
+  font-family: Inter, sans-serif;
+}
+.preview-github.style-deedy .gh-grid-deedy {
+  display: grid; grid-template-columns: 35% 1fr; gap: 10px;
+}
+.preview-github.style-deedy .gh-section-title {
+  color: #2C2C2C; font-size: 0.56rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  padding-bottom: 2px; margin-bottom: 3px;
+  border-bottom: 1px solid #bbb;
+}
+.preview-github.style-deedy .gh-row { font-size: 0.50rem; font-weight: 700; }
+.preview-github.style-deedy .gh-row span { font-size: 0.44rem; color: #777; }
+.preview-github.style-deedy .gh-desc { font-size: 0.46rem; color: #444; line-height: 1.2; }
+.preview-github.style-deedy .gh-list { font-size: 0.44rem; line-height: 1.16; color: #333; }
+.preview-github.style-deedy .gh-pill {
+  background: #f3f4f6; color: #2C2C2C; border-radius: 0; padding: 1px 4px;
+  font-family: Inter, sans-serif; font-size: 0.40rem;
+}
+/* hide generic gh-head for deedy (uses gh-head-deedy) */
+.preview-github.style-deedy .gh-head { display: none; }
+
+/* ========== 5. Jake's Resume — centered limited-width, red underline ========== */
+.preview-github.style-jakes {
+  --gh: #e74c3c; --gh-soft: rgba(231,76,60,0.08);
+  max-width: 680px; margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+}
+.preview-github.style-jakes .gh-head {
+  text-align: center; padding-bottom: 5px; margin-bottom: 6px;
+  border-bottom: 1px solid #eee;
+}
+.preview-github.style-jakes .gh-name {
+  font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; color: #111827; text-align: center;
+}
+.preview-github.style-jakes .gh-title {
+  color: #555; font-weight: 600; font-size: 0.52rem; margin-top: 2px; text-align: center;
+}
+.preview-github.style-jakes .gh-contact {
+  color: #64748b; font-size: 0.46rem; margin-top: 2px; text-align: center;
+}
+.preview-github.style-jakes .gh-section-title {
+  color: #111827; font-size: 0.50rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-bottom: 3px; padding-bottom: 2px;
+  border-bottom: 2px solid #e74c3c;
+}
+.preview-github.style-jakes .gh-pill {
+  background: var(--gh-soft); color: var(--gh);
+}
+
+/* ========== 6. Reactive Resume — left sidebar teal + right content ========== */
+.preview-github.style-reactive {
+  --gh: #0D9488; --gh-soft: rgba(13,148,136,0.08);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+}
+.preview-github.style-reactive .gh-grid-reactive {
+  display: grid; grid-template-columns: 30% 1fr; gap: 0; margin: 0 -1px;
+}
+.preview-github.style-reactive .gh-sidebar {
+  background: #0D9488; color: #fff; padding: 10px 8px;
+}
+.preview-github.style-reactive .gh-sidebar .gh-name {
+  font-size: 0.72rem; font-weight: 800; color: #fff; margin-bottom: 2px;
+}
+.preview-github.style-reactive .gh-sidebar .gh-title {
+  font-size: 0.44rem; color: rgba(255,255,255,0.85); font-weight: 400; margin-bottom: 6px;
+}
+.preview-github.style-reactive .gh-sidebar .gh-contact {
+  font-size: 0.42rem; color: rgba(255,255,255,0.8); margin-bottom: 6px;
+}
+.preview-github.style-reactive .gh-sidebar .gh-section-title {
+  color: #fff; font-size: 0.46rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;
+  padding-bottom: 1px; border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+.preview-github.style-reactive .gh-sidebar .gh-desc {
+  font-size: 0.42rem; color: rgba(255,255,255,0.9); line-height: 1.2;
+}
+.preview-github.style-reactive .gh-sidebar .gh-pill {
+  background: rgba(255,255,255,0.18); color: #fff; border-radius: 4px;
+}
+.preview-github.style-reactive .gh-main {
+  padding: 10px 8px; background: #fff;
+}
+.preview-github.style-reactive .gh-main .gh-section-title {
+  color: #0D9488; font-size: 0.54rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px;
+  padding-bottom: 1px; border-bottom: 1.5px solid rgba(13,148,136,0.25);
+}
+.preview-github.style-reactive .gh-main .gh-pill {
+  background: var(--gh-soft); color: var(--gh);
+}
+/* hide generic gh-head for reactive (uses sidebar) */
+.preview-github.style-reactive .gh-head { display: none; }
+
+/* ========== 7. OpenResume — ATS-friendly, orange, relaxed ========== */
+.preview-github.style-openresume {
+  --gh: #E65100; --gh-soft: rgba(230,81,0,0.08);
+  font-family: Inter, 'Noto Sans SC', sans-serif; line-height: 1.6;
+}
+.preview-github.style-openresume .gh-head {
+  text-align: left; padding-bottom: 5px; margin-bottom: 6px;
+}
+.preview-github.style-openresume .gh-name {
+  font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; color: #111827;
+}
+.preview-github.style-openresume .gh-title {
+  color: #555; font-weight: 600; font-size: 0.52rem; margin-top: 2px;
+}
+.preview-github.style-openresume .gh-contact {
+  color: #64748b; font-size: 0.46rem; margin-top: 3px;
+}
+.preview-github.style-openresume .gh-section-title {
+  color: #111827; font-size: 0.56rem; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px;
+  padding-bottom: 3px; border-bottom: 3px solid #E65100;
+}
+.preview-github.style-openresume .gh-pill {
+  background: var(--gh-soft); color: var(--gh);
+}
+
+/* ========== ResumeSample — shared base with slight accent ========== */
+.preview-github.style-resumesample {
+  --gh: #0ea5e9; --gh-soft: rgba(14,165,233,0.10);
+}
 .preview-github.style-resumesample .gh-head {
-  border-bottom: 0;
-  border-left: 4px solid var(--gh);
+  border-bottom: 0; border-left: 4px solid var(--gh);
   background: linear-gradient(135deg, rgba(14,165,233,0.10), rgba(255,255,255,0.82));
-  border-radius: 10px;
-  padding: 8px 10px;
+  border-radius: 10px; padding: 8px 10px;
 }
 .preview-github.style-resumesample .gh-section-title {
-  color: #0f172a;
-  border-bottom: 1px solid rgba(14,165,233,0.35);
-  padding-bottom: 2px;
+  color: #0f172a; border-bottom: 1px solid rgba(14,165,233,0.35); padding-bottom: 2px;
 }
-.preview-github.style-deedy .gh-head,
-.preview-github.style-jakes .gh-head { text-align: center; }
-.preview-github.style-deedy .gh-grid { grid-template-columns: 38% 1fr; }
-.preview-github.style-modern .gh-head,
-.preview-github.style-reactive .gh-head {
-  border-bottom: 0;
-  background: linear-gradient(135deg, var(--gh-soft), rgba(255,255,255,0.8));
-  border-radius: 10px;
-  padding: 8px;
-}
-.preview-github.style-openresume .gh-section-title { color: #111827; border-bottom: 1px solid var(--gh); }
 
 /* ========== Typst Preview Styles ========== */
 .preview-typst {
@@ -3834,7 +4027,9 @@ function renderGithubStylePreview(style, data) {
     'openresume': 'style-openresume'
   }[style] || (sampleMeta ? 'style-resumesample' : 'style-awesome');
 
-  const contactHtml = data.contactItems.length ? data.contactItems.join(' · ') : 'phone · email · location · portfolio';
+  const isResumeSample = !!sampleMeta;
+  const contactItems = data.contactItems.length ? data.contactItems : ['phone', 'email', 'location', 'portfolio'];
+  const contactDot = contactItems.join(' · ');
   const displayTitle = sampleMeta ? sampleMeta.role : data.title;
   const sampleIntro = sampleMeta ? `<div class="gh-section"><div class="gh-section-title">ResumeSample 结构</div><div class="gh-desc">参考 geekcompany/ResumeSample 的 ${sampleMeta.title} Markdown 模板：联系方式、个人信息、工作经历、开源项目和作品、技术文章、演讲和技能清单。</div></div>` : '';
   const sampleFocus = sampleMeta ? `<div class="gh-section"><div class="gh-section-title">岗位重点</div><div class="gh-desc">${sampleMeta.focus}</div></div>` : '';
@@ -3851,31 +4046,143 @@ function renderGithubStylePreview(style, data) {
   const skillsForTemplate = sampleMeta ? sampleMeta.stack : data.skills;
   const skillsHtml = skillsForTemplate.map(s => `<span class="gh-pill">${s}</span>`).join('');
 
-  const leftColumn = style === 'deedy' || style === 'modern-resume' ? `
-    <div>
-      ${eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
-      ${skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
-      ${awardHtml ? `<div class="gh-section"><div class="gh-section-title">Awards</div>${awardHtml}</div>` : ''}
-    </div>` : '';
+  const profileSection = data.summary ? `<div class="gh-section"><div class="gh-section-title">Profile</div><div class="gh-desc">${data.summary}</div></div>` : '';
+  const badge = `<div class="github-template-badge">${labels[style] || labels['awesome-cv']}</div>`;
 
-  const mainColumn = `
-    <div>
-      ${sampleIntro}
-      ${sampleFocus}
-      ${data.summary ? `<div class="gh-section"><div class="gh-section-title">Profile</div><div class="gh-desc">${data.summary}</div></div>` : ''}
-      ${expHtml ? `<div class="gh-section"><div class="gh-section-title">Experience</div>${expHtml}</div>` : ''}
-      ${projHtml ? `<div class="gh-section"><div class="gh-section-title">Projects</div>${projHtml}</div>` : ''}
-      ${campusHtml ? `<div class="gh-section"><div class="gh-section-title">Leadership</div>${campusHtml}</div>` : ''}
-      ${style !== 'deedy' && style !== 'modern-resume' && eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
-      ${style !== 'deedy' && style !== 'modern-resume' && skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
-    </div>`;
+  /* ---------- 1. Awesome-CV: single-column centered, red, footer ---------- */
+  if (style === 'awesome-cv' && !isResumeSample) {
+    return `<div class="preview-github ${cls}">
+    ${badge}
+    <div class="gh-head"><div class="gh-name">${data.name}</div><div class="gh-title">${displayTitle.toUpperCase()}</div><div class="gh-contact">${contactDot}</div></div>
+    ${profileSection}
+    ${expHtml ? `<div class="gh-section"><div class="gh-section-title">Experience</div>${expHtml}</div>` : ''}
+    ${projHtml ? `<div class="gh-section"><div class="gh-section-title">Projects</div>${projHtml}</div>` : ''}
+    ${eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
+    ${skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+    ${awardHtml ? `<div class="gh-section"><div class="gh-section-title">Awards</div>${awardHtml}</div>` : ''}
+    <div class="gh-footer">
+      <div>2024-06</div>
+      <div class="gh-footer-center">${data.name} · Resume</div>
+      <div class="gh-footer-right">Page 1</div>
+    </div>
+  </div>`;
+  }
 
+  /* ---------- 2. modern-resume: single-column serif tight ---------- */
+  if (style === 'modern-resume' && !isResumeSample) {
+    return `<div class="preview-github ${cls}">
+    ${badge}
+    <div class="gh-head"><div class="gh-name">${data.name}</div><div class="gh-title">${displayTitle}</div><div class="gh-contact">${contactDot}</div></div>
+    ${profileSection}
+    ${expHtml ? `<div class="gh-section"><div class="gh-section-title">Experience</div>${expHtml}</div>` : ''}
+    ${projHtml ? `<div class="gh-section"><div class="gh-section-title">Projects</div>${projHtml}</div>` : ''}
+    ${eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
+    ${skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+    ${awardHtml ? `<div class="gh-section"><div class="gh-section-title">Awards</div>${awardHtml}</div>` : ''}
+  </div>`;
+  }
+
+  /* ---------- 3. JSON Resume: left-aligned head, centered purple underline titles ---------- */
+  if (style === 'jsonresume' && !isResumeSample) {
+    return `<div class="preview-github ${cls}">
+    ${badge}
+    <div class="gh-head"><div class="gh-name">${data.name}</div><div class="gh-title">${displayTitle}</div><div class="gh-contact">${contactDot}</div></div>
+    ${profileSection}
+    ${expHtml ? `<div class="gh-section"><div class="gh-section-title">Experience</div>${expHtml}</div>` : ''}
+    ${projHtml ? `<div class="gh-section"><div class="gh-section-title">Projects</div>${projHtml}</div>` : ''}
+    ${eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
+    ${skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+    ${awardHtml ? `<div class="gh-section"><div class="gh-section-title">Awards</div>${awardHtml}</div>` : ''}
+  </div>`;
+  }
+
+  /* ---------- 4. Deedy: dark full-width header + 35/65 asymmetric dual-column ---------- */
+  if (style === 'deedy' && !isResumeSample) {
+    return `<div class="preview-github ${cls}">
+    ${badge}
+    <div class="gh-head-deedy"><div class="gh-name">${data.name}</div><div class="gh-title">${displayTitle}</div><div class="gh-contact">${contactDot}</div></div>
+    <div class="gh-grid-deedy">
+      <div>
+        ${eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
+        ${skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+        ${awardHtml ? `<div class="gh-section"><div class="gh-section-title">Awards</div>${awardHtml}</div>` : ''}
+      </div>
+      <div>
+        ${profileSection}
+        ${expHtml ? `<div class="gh-section"><div class="gh-section-title">Experience</div>${expHtml}</div>` : ''}
+        ${projHtml ? `<div class="gh-section"><div class="gh-section-title">Projects</div>${projHtml}</div>` : ''}
+        ${campusHtml ? `<div class="gh-section"><div class="gh-section-title">Leadership</div>${campusHtml}</div>` : ''}
+      </div>
+    </div>
+  </div>`;
+  }
+
+  /* ---------- 5. Jake's Resume: centered limited-width, red underline ---------- */
+  if (style === 'jakes' && !isResumeSample) {
+    return `<div class="preview-github ${cls}">
+    ${badge}
+    <div class="gh-head"><div class="gh-name">${data.name}</div><div class="gh-title">${displayTitle}</div><div class="gh-contact">${contactDot}</div></div>
+    ${profileSection}
+    ${expHtml ? `<div class="gh-section"><div class="gh-section-title">Experience</div>${expHtml}</div>` : ''}
+    ${projHtml ? `<div class="gh-section"><div class="gh-section-title">Projects</div>${projHtml}</div>` : ''}
+    ${eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
+    ${skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+    ${awardHtml ? `<div class="gh-section"><div class="gh-section-title">Awards</div>${awardHtml}</div>` : ''}
+  </div>`;
+  }
+
+  /* ---------- 6. Reactive Resume: left teal sidebar + right content ---------- */
+  if (style === 'reactive' && !isResumeSample) {
+    return `<div class="preview-github ${cls}">
+    ${badge}
+    <div class="gh-grid-reactive">
+      <div class="gh-sidebar">
+        <div class="gh-name">${data.name}</div>
+        <div class="gh-title">${displayTitle}</div>
+        <div class="gh-contact">${contactDot}</div>
+        ${skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+        ${awardHtml ? `<div class="gh-section"><div class="gh-section-title">Awards</div>${awardHtml}</div>` : ''}
+      </div>
+      <div class="gh-main">
+        ${profileSection}
+        ${expHtml ? `<div class="gh-section"><div class="gh-section-title">Experience</div>${expHtml}</div>` : ''}
+        ${projHtml ? `<div class="gh-section"><div class="gh-section-title">Projects</div>${projHtml}</div>` : ''}
+        ${eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
+        ${campusHtml ? `<div class="gh-section"><div class="gh-section-title">Leadership</div>${campusHtml}</div>` : ''}
+      </div>
+    </div>
+  </div>`;
+  }
+
+  /* ---------- 7. OpenResume: single-column, orange thick border, relaxed ---------- */
+  if (style === 'openresume' && !isResumeSample) {
+    return `<div class="preview-github ${cls}">
+    ${badge}
+    <div class="gh-head"><div class="gh-name">${data.name}</div><div class="gh-title">${displayTitle}</div><div class="gh-contact">${contactDot}</div></div>
+    ${profileSection}
+    ${expHtml ? `<div class="gh-section"><div class="gh-section-title">Experience</div>${expHtml}</div>` : ''}
+    ${projHtml ? `<div class="gh-section"><div class="gh-section-title">Projects</div>${projHtml}</div>` : ''}
+    ${eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
+    ${skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+    ${awardHtml ? `<div class="gh-section"><div class="gh-section-title">Awards</div>${awardHtml}</div>` : ''}
+  </div>`;
+  }
+
+  /* ---------- Fallback / ResumeSample: default single-column with badge ---------- */
   return `<div class="preview-github ${cls}">
-    <div class="github-template-badge">${labels[style] || labels['awesome-cv']}</div>
-    <div class="gh-head"><div class="gh-name">${data.name}</div><div class="gh-title">${displayTitle}</div><div class="gh-contact">${contactHtml}</div></div>
-    ${leftColumn ? `<div class="gh-grid">${leftColumn}${mainColumn}</div>` : mainColumn}
+    ${badge}
+    <div class="gh-head"><div class="gh-name">${data.name}</div><div class="gh-title">${displayTitle}</div><div class="gh-contact">${contactDot}</div></div>
+    ${sampleIntro}
+    ${sampleFocus}
+    ${profileSection}
+    ${expHtml ? `<div class="gh-section"><div class="gh-section-title">Experience</div>${expHtml}</div>` : ''}
+    ${projHtml ? `<div class="gh-section"><div class="gh-section-title">Projects</div>${projHtml}</div>` : ''}
+    ${campusHtml ? `<div class="gh-section"><div class="gh-section-title">Leadership</div>${campusHtml}</div>` : ''}
+    ${eduHtml ? `<div class="gh-section"><div class="gh-section-title">Education</div>${eduHtml}</div>` : ''}
+    ${skillsHtml ? `<div class="gh-section"><div class="gh-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
   </div>`;
 }
+
 
 // ========== UPDATE PREVIEW ==========
 function updatePreview() {
