@@ -2606,8 +2606,22 @@ body {
 @media print {
   .navbar, .footer, .hero, .stats-bar, .features, .templates, .how-it-works,
   .editor-section, .tips-section, .cta-section, .toast-container { display: none !important; }
-  .preview-paper { box-shadow: none; padding: 0; max-width: 100%; }
+  .preview-paper {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    overflow: hidden !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+  }
   body { background: #fff; }
+  .gh-section, .preview-section, .pt-section, .pts-section {
+    page-break-inside: avoid !important;
+  }
 }
 </style>
 </head>
@@ -4579,7 +4593,10 @@ function exportPDF() {
   const previewEl = document.getElementById('editorPreviewPaper');
   if (!previewEl) return;
 
-  // Create a new window for printing
+  // Collect all styles from the current page
+  let allStyles = '';
+  document.querySelectorAll('style').forEach(s => { allStyles += s.innerHTML; });
+
   const printWindow = window.open('', '_blank');
   printWindow.document.write(`
     <!DOCTYPE html>
@@ -4588,29 +4605,61 @@ function exportPDF() {
       <meta charset="UTF-8">
       <title>简历 - ${document.getElementById('inp-name')?.value || 'Resume'}</title>
       <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif; padding: 40px; color: #1a1a2e; line-height: 1.5; }
-        .resume { max-width: 800px; margin: 0 auto; font-size: 14px; }
-        .preview-header { text-align: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #2563eb; }
-        .preview-name { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
-        .preview-title { font-size: 16px; color: #2563eb; font-weight: 500; }
-        .preview-contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; font-size: 12px; color: #6b7280; }
-        .preview-section { margin-bottom: 20px; }
-        .preview-section-title { font-size: 14px; font-weight: 700; color: #2563eb; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; padding-bottom: 4px; border-bottom: 1px solid #e5e7eb; }
-        .preview-item { margin-bottom: 12px; }
-        .preview-item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
-        .preview-item-title { font-weight: 600; font-size: 14px; }
-        .preview-item-date { font-size: 12px; color: #6b7280; }
-        .preview-item-sub { font-size: 13px; color: #2563eb; font-weight: 500; margin-bottom: 2px; }
-        .preview-item-desc { font-size: 12px; color: #6b7280; line-height: 1.6; }
-        .preview-skills { display: flex; flex-wrap: wrap; gap: 8px; }
-        .preview-skill { padding: 4px 12px; background: rgba(37,99,235,0.08); color: #2563eb; font-size: 12px; border-radius: 20px; font-weight: 500; }
-        @media print { body { padding: 0; } }
+        ${allStyles}
+        /* Print page setup: force single A4 page */
+        @page { size: A4 portrait; margin: 0; }
+        html, body {
+          margin: 0; padding: 0;
+          width: 210mm; height: 297mm;
+          overflow: hidden;
+          background: #fff;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .print-resume-wrapper {
+          width: 210mm;
+          height: 297mm;
+          padding: 14mm 18mm;
+          box-sizing: border-box;
+          overflow: hidden;
+          position: relative;
+        }
+        /* Hide badge in print */
+        .github-template-badge, .template-badge { display: none !important; }
+        /* Ensure sections don't split across pages */
+        .gh-section, .preview-section, .pt-section, .pts-section,
+        .gh-item, .preview-item, .pt-item {
+          page-break-inside: avoid !important;
+        }
+        /* Scale down if content overflows */
+        .print-resume-wrapper > * {
+          transform-origin: top left;
+        }
       </style>
     </head>
     <body>
-      <div class="resume">${previewEl.innerHTML}</div>
-      <script>setTimeout(() => { window.print(); }, 500);<\/script>
+      <div class="print-resume-wrapper" id="printWrapper">
+        <div class="preview-paper" style="box-shadow:none;width:100%;height:100%;padding:0;margin:0;max-height:100%;overflow:hidden;">
+          ${previewEl.innerHTML}
+        </div>
+      </div>
+      <script>
+        (function() {
+          const wrapper = document.getElementById('printWrapper');
+          const paper = wrapper.querySelector('.preview-paper');
+          function fitToPage() {
+            const maxH = 269; /* 297mm - 28mm padding = ~269mm content area */
+            const contentH = paper.scrollHeight / 3.78; /* px to mm approx */
+            if (contentH > maxH) {
+              const scale = maxH / contentH;
+              paper.style.transform = 'scale(' + scale.toFixed(3) + ')';
+              paper.style.transformOrigin = 'top left';
+            }
+          }
+          setTimeout(fitToPage, 100);
+          setTimeout(() => { window.print(); }, 600);
+        })();
+      <\/script>
     </body>
     </html>
   `);
