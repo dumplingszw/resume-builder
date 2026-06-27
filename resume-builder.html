@@ -1427,6 +1427,221 @@ body {
   background: var(--gh-soft); color: var(--gh);
 }
 
+/* ========== 8. Magazine — 杂志画报风 ========== */
+.preview-github.style-magazine {
+  --mg-accent: #c41e3a;
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  gap: 10px;
+  height: 100%;
+}
+.preview-github.style-magazine .mg-left {
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.preview-github.style-magazine .mg-avatar {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--mg-accent), #ff6b6b);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; font-weight: 900; color: #fff;
+  margin-bottom: 6px;
+}
+.preview-github.style-magazine .mg-name { font-size: 0.7rem; font-weight: 800; color: #fff; }
+.preview-github.style-magazine .mg-title { font-size: 0.38rem; color: rgba(255,255,255,0.7); margin-top: 2px; }
+.preview-github.style-magazine .mg-contact { font-size: 0.32rem; color: rgba(255,255,255,0.5); margin-top: 4px; line-height: 1.4; }
+.preview-github.style-magazine .mg-left-section { margin-top: 6px; width: 100%; text-align: left; }
+.preview-github.style-magazine .mg-left-title { font-size: 0.36rem; font-weight: 700; color: var(--mg-accent); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 2px; margin-bottom: 3px; }
+.preview-github.style-magazine .mg-left-item { font-size: 0.32rem; color: rgba(255,255,255,0.8); margin-bottom: 2px; }
+.preview-github.style-magazine .mg-right { padding: 8px 6px; }
+.preview-github.style-magazine .mg-section { margin-bottom: 5px; }
+.preview-github.style-magazine .mg-section-title { font-size: 0.44rem; font-weight: 800; color: #1a1a2e; text-transform: uppercase; letter-spacing: 0.05em; border-left: 3px solid var(--mg-accent); padding-left: 5px; margin-bottom: 3px; }
+.preview-github.style-magazine .mg-item { margin-bottom: 3px; }
+.preview-github.style-magazine .mg-row { display: flex; justify-content: space-between; font-size: 0.4rem; font-weight: 700; color: #1a1a2e; }
+.preview-github.style-magazine .mg-row span { font-size: 0.34rem; color: #888; font-weight: 500; }
+.preview-github.style-magazine .mg-desc { font-size: 0.36rem; color: #555; line-height: 1.3; }
+
+/* ========== 9. Swiss — 瑞士网格风 ========== */
+.preview-github.style-swiss {
+  --sw-primary: #ff3300;
+  --sw-dark: #0a0a0a;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.preview-github.style-swiss .sw-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 3px solid var(--sw-dark);
+  padding-bottom: 4px;
+  margin-bottom: 5px;
+}
+.preview-github.style-swiss .sw-name { font-size: 1.4rem; font-weight: 900; color: var(--sw-dark); letter-spacing: -0.02em; line-height: 1; }
+.preview-github.style-swiss .sw-info { text-align: right; font-size: 0.34rem; color: #666; line-height: 1.4; }
+.preview-github.style-swiss .sw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex: 1; }
+.preview-github.style-swiss .sw-section { margin-bottom: 4px; }
+.preview-github.style-swiss .sw-section-title { font-size: 0.4rem; font-weight: 900; color: #fff; background: var(--sw-dark); padding: 2px 5px; display: inline-block; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+.preview-github.style-swiss .sw-item { margin-bottom: 3px; }
+.preview-github.style-swiss .sw-row { font-size: 0.38rem; font-weight: 700; color: var(--sw-dark); display: flex; justify-content: space-between; }
+.preview-github.style-swiss .sw-row span { font-size: 0.32rem; color: var(--sw-primary); font-weight: 800; }
+.preview-github.style-swiss .sw-desc { font-size: 0.34rem; color: #444; line-height: 1.25; }
+.preview-github.style-swiss .sw-pill { display: inline-block; background: var(--sw-primary); color: #fff; font-size: 0.3rem; font-weight: 700; padding: 1px 4px; margin: 1px; }
+
+/* ========== 10. Minimal — 极简留白风 ========== */
+.preview-github.style-minimal {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+.preview-github.style-minimal .mn-head { text-align: center; margin-bottom: 10px; }
+.preview-github.style-minimal .mn-name { font-size: 1.1rem; font-weight: 300; color: #1a1a1a; letter-spacing: 0.15em; }
+.preview-github.style-minimal .mn-title { font-size: 0.4rem; color: #999; font-weight: 400; margin-top: 3px; letter-spacing: 0.08em; }
+.preview-github.style-minimal .mn-contact { font-size: 0.34rem; color: #bbb; margin-top: 4px; }
+.preview-github.style-minimal .mn-section { margin-bottom: 8px; }
+.preview-github.style-minimal .mn-section-title { font-size: 0.36rem; font-weight: 400; color: #1a1a1a; letter-spacing: 0.2em; text-transform: uppercase; border-bottom: 0.5px solid #ddd; padding-bottom: 3px; margin-bottom: 4px; }
+.preview-github.style-minimal .mn-item { margin-bottom: 5px; }
+.preview-github.style-minimal .mn-row { display: flex; justify-content: space-between; font-size: 0.4rem; font-weight: 500; color: #333; }
+.preview-github.style-minimal .mn-row span { font-size: 0.32rem; color: #aaa; font-weight: 400; }
+.preview-github.style-minimal .mn-desc { font-size: 0.36rem; color: #777; line-height: 1.5; }
+.preview-github.style-minimal .mn-pill { font-size: 0.32rem; color: #999; border: 0.5px solid #ddd; padding: 1px 5px; border-radius: 10px; margin: 1px; display: inline-block; }
+
+/* ========== 11. Dark Card — 深色卡片风 ========== */
+.preview-github.style-dark-card {
+  --dc-bg: #1e1e2e;
+  --dc-card: #2a2a3a;
+  --dc-accent: #a6e3a1;
+  font-family: 'Noto Sans SC', sans-serif;
+  background: var(--dc-bg);
+  color: #cdd6f4;
+  padding: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.preview-github.style-dark-card .dc-head { text-align: center; margin-bottom: 6px; }
+.preview-github.style-dark-card .dc-name { font-size: 1rem; font-weight: 800; color: #fff; }
+.preview-github.style-dark-card .dc-title { font-size: 0.42rem; color: var(--dc-accent); margin-top: 2px; }
+.preview-github.style-dark-card .dc-contact { font-size: 0.34rem; color: #7f849c; margin-top: 3px; }
+.preview-github.style-dark-card .dc-card {
+  background: var(--dc-card);
+  border-radius: 6px;
+  padding: 5px 6px;
+  margin-bottom: 4px;
+}
+.preview-github.style-dark-card .dc-card-title {
+  font-size: 0.38rem; font-weight: 700; color: var(--dc-accent);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 3px;
+}
+.preview-github.style-dark-card .dc-item { margin-bottom: 3px; }
+.preview-github.style-dark-card .dc-row { display: flex; justify-content: space-between; font-size: 0.4rem; font-weight: 600; color: #fff; }
+.preview-github.style-dark-card .dc-row span { font-size: 0.32rem; color: #7f849c; }
+.preview-github.style-dark-card .dc-desc { font-size: 0.34rem; color: #a6adc8; line-height: 1.3; }
+.preview-github.style-dark-card .dc-pill { font-size: 0.3rem; color: var(--dc-accent); background: rgba(166,227,161,0.12); padding: 1px 4px; border-radius: 4px; margin: 1px; display: inline-block; }
+
+/* ========== 12. Editorial — 编辑排版风 ========== */
+.preview-github.style-editorial {
+  --ed-accent: #d4a574;
+  font-family: Georgia, 'Times New Roman', serif;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.preview-github.style-editorial .ed-bar {
+  height: 6px;
+  background: linear-gradient(90deg, var(--ed-accent), #8b6914);
+  margin-bottom: 5px;
+}
+.preview-github.style-editorial .ed-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 4px;
+  margin-bottom: 5px;
+}
+.preview-github.style-editorial .ed-name { font-size: 1.3rem; font-weight: 700; color: #1a1a1a; font-style: italic; }
+.preview-github.style-editorial .ed-info { text-align: right; font-size: 0.32rem; color: #666; line-height: 1.4; }
+.preview-github.style-editorial .ed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: 1; }
+.preview-github.style-editorial .ed-section { margin-bottom: 4px; }
+.preview-github.style-editorial .ed-section-title {
+  font-size: 0.42rem; font-weight: 700; color: #1a1a1a;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--ed-accent);
+  padding-bottom: 2px; margin-bottom: 3px;
+}
+.preview-github.style-editorial .ed-item { margin-bottom: 3px; }
+.preview-github.style-editorial .ed-row { font-size: 0.38rem; font-weight: 700; color: #1a1a1a; }
+.preview-github.style-editorial .ed-row .ed-date { font-size: 0.32rem; color: #999; font-style: italic; font-weight: 400; }
+.preview-github.style-editorial .ed-desc { font-size: 0.36rem; color: #555; line-height: 1.4; }
+
+/* ========== 13. Geometric — 几何现代风 ========== */
+.preview-github.style-geometric {
+  --geo-primary: #6366f1;
+  --geo-secondary: #ec4899;
+  font-family: 'Noto Sans SC', sans-serif;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.preview-github.style-geometric::before {
+  content: '';
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, var(--geo-primary), var(--geo-secondary));
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: 0;
+}
+.preview-github.style-geometric .geo-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+  position: relative; z-index: 1;
+}
+.preview-github.style-geometric .geo-avatar {
+  width: 36px; height: 36px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--geo-primary), var(--geo-secondary));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; font-weight: 900; color: #fff;
+}
+.preview-github.style-geometric .geo-name { font-size: 0.8rem; font-weight: 800; color: #1e1b4b; }
+.preview-github.style-geometric .geo-title { font-size: 0.38rem; color: var(--geo-primary); font-weight: 600; }
+.preview-github.style-geometric .geo-contact { font-size: 0.32rem; color: #888; margin-top: 2px; }
+.preview-github.style-geometric .geo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex: 1; position: relative; z-index: 1; }
+.preview-github.style-geometric .geo-section { margin-bottom: 4px; }
+.preview-github.style-geometric .geo-section-title {
+  font-size: 0.4rem; font-weight: 800; color: var(--geo-primary);
+  display: inline-block;
+  background: linear-gradient(90deg, rgba(99,102,241,0.1), rgba(236,72,153,0.1));
+  padding: 1px 6px;
+  border-radius: 6px;
+  margin-bottom: 3px;
+}
+.preview-github.style-geometric .geo-item { margin-bottom: 3px; }
+.preview-github.style-geometric .geo-row { display: flex; justify-content: space-between; font-size: 0.4rem; font-weight: 700; color: #1e1b4b; }
+.preview-github.style-geometric .geo-row span { font-size: 0.32rem; color: var(--geo-secondary); font-weight: 600; }
+.preview-github.style-geometric .geo-desc { font-size: 0.34rem; color: #64748b; line-height: 1.3; }
+.preview-github.style-geometric .geo-pill {
+  font-size: 0.3rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--geo-primary), var(--geo-secondary));
+  color: #fff; padding: 1px 5px;
+  border-radius: 8px; margin: 1px; display: inline-block;
+}
+
 /* ========== ResumeSample — shared base with slight accent ========== */
 .preview-github.style-resumesample {
   --gh: #0ea5e9; --gh-soft: rgba(14,165,233,0.10);
@@ -3341,6 +3556,12 @@ body {
             <option value="resumesample-cpp">ResumeSample C/C++程序员</option>
             <option value="resumesample-architect">ResumeSample 架构师</option>
             <option value="resumesample-general">ResumeSample 通用程序员</option>
+            <option value="magazine">杂志画报风</option>
+            <option value="swiss">瑞士网格风</option>
+            <option value="minimal">极简留白风</option>
+            <option value="dark-card">深色卡片风</option>
+            <option value="editorial">编辑排版风</option>
+            <option value="geometric">几何现代风</option>
             <option value="typst">Typst 学术</option>
             <option value="typst-simple">Typst 简约</option>
           </select>
@@ -4218,6 +4439,144 @@ function renderGithubStylePreview(style, data) {
   </div>`;
   }
 
+  /* ---------- 8. Magazine ---------- */
+  if (style === 'magazine') {
+    const leftSections = [];
+    if (eduHtml) leftSections.push(`<div class="mg-left-section"><div class="mg-left-title">Education</div>${eduHtml}</div>`);
+    if (skillsHtml) leftSections.push(`<div class="mg-left-section"><div class="mg-left-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>`);
+    if (awardHtml) leftSections.push(`<div class="mg-left-section"><div class="mg-left-title">Awards</div>${awardHtml}</div>`);
+    const rightSections = [];
+    if (data.summary) rightSections.push(`<div class="mg-section"><div class="mg-section-title">Profile</div><div class="mg-desc">${data.summary}</div></div>`);
+    if (expHtml) rightSections.push(`<div class="mg-section"><div class="mg-section-title">Experience</div>${expHtml}</div>`);
+    if (projHtml) rightSections.push(`<div class="mg-section"><div class="mg-section-title">Projects</div>${projHtml}</div>`);
+    if (campusHtml) rightSections.push(`<div class="mg-section"><div class="mg-section-title">Leadership</div>${campusHtml}</div>`);
+    return `<div class="preview-github style-magazine">
+      <div class="github-template-badge">杂志画报风</div>
+      <div class="mg-left">
+        <div class="mg-avatar">${data.name ? data.name.charAt(0) : '?'}</div>
+        <div class="mg-name">${data.name}</div>
+        <div class="mg-title">${displayTitle}</div>
+        <div class="mg-contact">${contactHtml}</div>
+        ${leftSections.join('')}
+      </div>
+      <div class="mg-right">${rightSections.join('')}</div>
+    </div>`;
+  }
+
+  /* ---------- 9. Swiss ---------- */
+  if (style === 'swiss') {
+    return `<div class="preview-github style-swiss">
+      <div class="github-template-badge">瑞士网格风</div>
+      <div class="sw-head">
+        <div class="sw-name">${data.name}</div>
+        <div class="sw-info">${displayTitle}<br>${contactHtml}</div>
+      </div>
+      <div class="sw-grid">
+        <div>
+          ${data.summary ? `<div class="sw-section"><div class="sw-section-title">Profile</div><div class="sw-desc">${data.summary}</div></div>` : ''}
+          ${expHtml ? `<div class="sw-section"><div class="sw-section-title">Experience</div>${expHtml}</div>` : ''}
+          ${projHtml ? `<div class="sw-section"><div class="sw-section-title">Projects</div>${projHtml}</div>` : ''}
+        </div>
+        <div>
+          ${eduHtml ? `<div class="sw-section"><div class="sw-section-title">Education</div>${eduHtml}</div>` : ''}
+          ${skillsHtml ? `<div class="sw-section"><div class="sw-section-title">Skills</div>${skillsHtml}</div>` : ''}
+          ${awardHtml ? `<div class="sw-section"><div class="sw-section-title">Awards</div>${awardHtml}</div>` : ''}
+          ${campusHtml ? `<div class="sw-section"><div class="sw-section-title">Leadership</div>${campusHtml}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  /* ---------- 10. Minimal ---------- */
+  if (style === 'minimal') {
+    return `<div class="preview-github style-minimal">
+      <div class="github-template-badge">极简留白风</div>
+      <div class="mn-head">
+        <div class="mn-name">${data.name}</div>
+        <div class="mn-title">${displayTitle}</div>
+        <div class="mn-contact">${contactHtml}</div>
+      </div>
+      ${data.summary ? `<div class="mn-section"><div class="mn-section-title">Profile</div><div class="mn-desc">${data.summary}</div></div>` : ''}
+      ${expHtml ? `<div class="mn-section"><div class="mn-section-title">Experience</div>${expHtml}</div>` : ''}
+      ${projHtml ? `<div class="mn-section"><div class="mn-section-title">Projects</div>${projHtml}</div>` : ''}
+      ${eduHtml ? `<div class="mn-section"><div class="mn-section-title">Education</div>${eduHtml}</div>` : ''}
+      ${skillsHtml ? `<div class="mn-section"><div class="mn-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+      ${awardHtml ? `<div class="mn-section"><div class="mn-section-title">Awards</div>${awardHtml}</div>` : ''}
+    </div>`;
+  }
+
+  /* ---------- 11. Dark Card ---------- */
+  if (style === 'dark-card') {
+    const cards = [];
+    if (expHtml) cards.push(`<div class="dc-card"><div class="dc-card-title">Experience</div>${expHtml}</div>`);
+    if (projHtml) cards.push(`<div class="dc-card"><div class="dc-card-title">Projects</div>${projHtml}</div>`);
+    if (eduHtml) cards.push(`<div class="dc-card"><div class="dc-card-title">Education</div>${eduHtml}</div>`);
+    if (skillsHtml) cards.push(`<div class="dc-card"><div class="dc-card-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>`);
+    if (awardHtml) cards.push(`<div class="dc-card"><div class="dc-card-title">Awards</div>${awardHtml}</div>`);
+    if (campusHtml) cards.push(`<div class="dc-card"><div class="dc-card-title">Leadership</div>${campusHtml}</div>`);
+    return `<div class="preview-github style-dark-card">
+      <div class="github-template-badge">深色卡片风</div>
+      <div class="dc-head">
+        <div class="dc-name">${data.name}</div>
+        <div class="dc-title">${displayTitle}</div>
+        <div class="dc-contact">${contactHtml}</div>
+      </div>
+      ${data.summary ? `<div class="dc-card"><div class="dc-card-title">Profile</div><div class="dc-desc">${data.summary}</div></div>` : ''}
+      ${cards.join('')}
+    </div>`;
+  }
+
+  /* ---------- 12. Editorial ---------- */
+  if (style === 'editorial') {
+    return `<div class="preview-github style-editorial">
+      <div class="github-template-badge">编辑排版风</div>
+      <div class="ed-bar"></div>
+      <div class="ed-head">
+        <div class="ed-name">${data.name}</div>
+        <div class="ed-info">${displayTitle}<br>${contactHtml}</div>
+      </div>
+      <div class="ed-grid">
+        <div>
+          ${data.summary ? `<div class="ed-section"><div class="ed-section-title">Profile</div><div class="ed-desc">${data.summary}</div></div>` : ''}
+          ${expHtml ? `<div class="ed-section"><div class="ed-section-title">Experience</div>${expHtml}</div>` : ''}
+          ${projHtml ? `<div class="ed-section"><div class="ed-section-title">Projects</div>${projHtml}</div>` : ''}
+        </div>
+        <div>
+          ${eduHtml ? `<div class="ed-section"><div class="ed-section-title">Education</div>${eduHtml}</div>` : ''}
+          ${skillsHtml ? `<div class="ed-section"><div class="ed-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+          ${awardHtml ? `<div class="ed-section"><div class="ed-section-title">Awards</div>${awardHtml}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  /* ---------- 13. Geometric ---------- */
+  if (style === 'geometric') {
+    return `<div class="preview-github style-geometric">
+      <div class="github-template-badge">几何现代风</div>
+      <div class="geo-head">
+        <div class="geo-avatar">${data.name ? data.name.charAt(0) : '?'}</div>
+        <div>
+          <div class="geo-name">${data.name}</div>
+          <div class="geo-title">${displayTitle}</div>
+          <div class="geo-contact">${contactHtml}</div>
+        </div>
+      </div>
+      <div class="geo-grid">
+        <div>
+          ${data.summary ? `<div class="geo-section"><div class="geo-section-title">Profile</div><div class="geo-desc">${data.summary}</div></div>` : ''}
+          ${expHtml ? `<div class="geo-section"><div class="geo-section-title">Experience</div>${expHtml}</div>` : ''}
+          ${projHtml ? `<div class="geo-section"><div class="geo-section-title">Projects</div>${projHtml}</div>` : ''}
+        </div>
+        <div>
+          ${eduHtml ? `<div class="geo-section"><div class="geo-section-title">Education</div>${eduHtml}</div>` : ''}
+          ${skillsHtml ? `<div class="geo-section"><div class="geo-section-title">Skills</div><div class="gh-skills">${skillsHtml}</div></div>` : ''}
+          ${awardHtml ? `<div class="geo-section"><div class="geo-section-title">Awards</div>${awardHtml}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }
+
   /* ---------- Fallback / ResumeSample: default single-column with badge ---------- */
   return `<div class="preview-github ${cls}">
     ${badge}
@@ -4317,7 +4676,10 @@ function updatePreview() {
   const langLevel = document.querySelector('.lang-level')?.value || '';
 
   let html = '';
-  const githubStyles = ['awesome-cv', 'modern-resume', 'jsonresume', 'deedy', 'jakes', 'reactive', 'openresume', 'resumesample-web', 'resumesample-java', 'resumesample-node', 'resumesample-php', 'resumesample-ios', 'resumesample-android', 'resumesample-cpp', 'resumesample-architect', 'resumesample-general'];
+  const githubStyles = ['awesome-cv', 'modern-resume', 'jsonresume', 'deedy', 'jakes', 'reactive', 'openresume',
+    'resumesample-web', 'resumesample-java', 'resumesample-node', 'resumesample-php', 'resumesample-ios',
+    'resumesample-android', 'resumesample-cpp', 'resumesample-architect', 'resumesample-general',
+    'magazine', 'swiss', 'minimal', 'dark-card', 'editorial', 'geometric'];
 
   if (githubStyles.includes(previewStyle)) {
     html = renderGithubStylePreview(previewStyle, {
